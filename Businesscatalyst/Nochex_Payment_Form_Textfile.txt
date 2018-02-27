@@ -1,0 +1,62 @@
+<script type="text/javascript" src="https://ssl.nochex.com/merchants/nochexFunctions.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<style type="text/css">
+            .inputstyle {
+            padding: 5px;
+            margin-left: 2.5em;
+            background: none repeat scroll 0% 0% rgb(245, 245, 245);
+            border: solid;
+            border-color: rgb(206, 206, 206) rgb(221, 221, 221) rgb(221, 221, 221);
+            border-width: 2px 1px 1px;
+            font-size: 15px;
+            }
+            .paymentform textarea {
+            margin-left: 2.5em;
+            padding: 5px;
+            width: 190px;
+            background: none repeat scroll 0% 0% rgb(245, 245, 245);
+            border: solid;
+            border-color: rgb(206, 206, 206) rgb(221, 221, 221) rgb(221, 221, 221);
+            border-width: 2px 1px 1px;
+            }
+            .paymentform span {
+            display: inline-block;
+            text-align: right;
+            width:150px;
+            }
+            .paymentform a{
+            padding: 1px 5px;
+            background-color: #2173E1;
+            color: #fff;
+            border: solid 1px #6CB1F2;
+            text-decoration: none;
+            }
+            .paymentform a:hover{
+            background-color: #6CB1F2;
+            text-decoration: none;
+            border: solid 1px #2173E1;
+            }
+            #content tr td, #content table{
+            border: none;
+            }
+            #nochexform{
+            width:50%;
+            }
+</style>
+        <form action="https://secure.nochex.com" method="POST" name="nochexform" id="nochexform">
+            <br />
+            <input name="merchant_id" value="[Enter your Nochex Merchant ID]" type="hidden" />
+            <div class="paymentform"><span>Invoice ID / Reference</span>
+            <input class="inputstyle" name="order_id" type="text" />
+            <br />
+            <br />
+            <span>Total Amount</span>
+            <input class="inputstyle" name="amount" type="text" />&nbsp;
+            <a onclick="qtotal()" href="javascript: void(0)">?</a> <br />
+            <br />
+            <span>Description</span> <textarea name="description" rows="5" cols="25"></textarea>
+            <input name="pageref" value="paymentgenerator-v1.0" type="hidden" /> <br />
+            <br />
+            <input class="paybtn" style="padding: 10px; margin-left: 200px;" type="image" src="https://ssl.nochex.com/images/buttons/nochex_pay.png" alt="Pay using Nochex" />
+            </div>
+        </form>

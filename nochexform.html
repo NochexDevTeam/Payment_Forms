@@ -1,0 +1,125 @@
+<script language="JavaScript">
+window.onload = function(){ 
+fillfields(); 
+};
+
+function verifyfields(){
+var merchantidfield = document.nochexform.merchant_id.value;
+var amountfield = document.nochexform.amount.value;
+var descriptionfield = document.nochexform.description.value;
+var errormessage = "The following fields are required: ";
+
+if (amountfield == "") {
+   errormessage = errormessage + "- Amount";
+}
+if (descriptionfield == "") {
+   errormessage = errormessage + "- Description ";
+}
+if (errormessage == "The following fields are required: "){
+   document.nochexform.submit();
+}
+else {
+   alert(errormessage);
+   return false;
+}
+}
+function qtotal(){
+   alert("Amount must be in following format: 00.00. For example 12.99");
+}
+function fillfields(){
+	var amount = getParameterByName('amount');
+	var description = getParameterByName('description');
+	var order_id = getParameterByName('order_id');
+
+	if (amount != null) {
+	document.nochexform.amount.value = amount;
+	}
+	if (description != null) {
+	document.nochexform.description.value = description;
+	}
+	if (order_id != null) {
+	document.nochexform.order_id.value = order_id;
+	}	
+}
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1]);
+}
+</script>
+<style type="text/css">
+.paymentform {
+	box-shadow: 10px 1px 11px 0px #555;
+	border:1px solid #666;
+	padding: 15px;
+	font-size: 12px;
+	width: 450px;
+	font-family:arial, tahoma;
+}
+.inputstyle {
+	width: 170px;
+	padding: 5px;
+	margin-left: 1.5em;
+	background: none repeat scroll 0% 0% rgb(245, 245, 245);
+	border: solid;
+	border-color: rgb(206, 206, 206) rgb(221, 221, 221) rgb(221, 221, 221);
+	border-width: 2px 1px 1px;
+}
+.paymentform textarea {
+	padding: 5px;
+	width: 170px;
+	margin-left: 20px;
+	background: none repeat scroll 0% 0% rgb(245, 245, 245);
+	border: solid;
+	border-color: rgb(206, 206, 206) rgb(221, 221, 221) rgb(221, 221, 221);
+	border-width: 2px 1px 1px;
+}
+.paymentform span {
+	width: 15em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block
+}
+.paymentform a{
+	padding: 1px 5px;
+	background-color: #2173E1;
+	color: #fff !important;
+	border: solid 1px #6CB1F2;
+	text-decoration: none;
+}
+.paymentform a:hover{
+	background-color: #6CB1F2;
+	text-decoration: none;
+	border: solid 1px #2173E1;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+</style>
+
+<form name="nochexform" method="POST" action="https://secure.nochex.com" onsubmit="return verifyfields()">
+<br />
+<input name="merchant_id" value="[Enter your Nochex Merchant ID]" type="hidden" />
+<div class="paymentform">
+
+<span>Invoice ID / Reference</span>
+<input class="inputstyle" name="order_id" value="" placeholder="Invoice Reference" type="text" />
+
+<br /><br />
+
+<span>Total Amount</span>
+<input class="inputstyle" name="amount" value="" placeholder="Transaction Amount" type="number" step="any" />&nbsp;<a href="javascript: void(0)" onclick="qtotal()">?</a>
+<br /><br />
+
+<span>Description</span>
+<textarea name="description" cols="25" rows="5" placeholder="Description of Transaction"></textarea>
+<input name="pageref" value="paymentgenerator-v1.0" type="hidden" />
+
+<br /><br />
+<input class="paybtn" style="padding: 10px; margin-left: 213px;" type="image" src="https://ssl.nochex.com/images/buttons/nochex_pay.png" alt="Pay using Nochex" />
+</div>
+</form>

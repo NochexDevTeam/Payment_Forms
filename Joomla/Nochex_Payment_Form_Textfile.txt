@@ -1,0 +1,70 @@
+<script type="text/javascript" src="https://ssl.nochex.com/merchants/nochexFunctions.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<style type="text/css">.inputstyle {
+							padding: 5px;
+							width: 190px !important;
+							margin-left: 2.5em;
+							background: none repeat scroll 0% 0% rgb(245, 245, 245);
+							border: solid;
+							border-color: rgb(206, 206, 206) rgb(221, 221, 221) rgb(221, 221, 221);
+							border-width: 2px 1px 1px;
+							font-size: 11px;
+						}
+						.paymentform textarea {
+							padding: 5px;
+							width: 190px;
+							background: none repeat scroll 0% 0% rgb(245, 245, 245);
+							border: solid;
+							border-color: rgb(206, 206, 206) rgb(221, 221, 221) rgb(221, 221, 221);
+							border-width: 2px 1px 1px;
+							margin-left: 27px;
+						}
+						.paymentform span {
+							width: 130px;
+							font-size: 12px;
+							float: left;
+							text-align: right;
+							margin-right: 0.5em;
+							display: block
+						}
+						.paymentform a{
+							padding: 1px 5px;
+							background-color: #2173E1;
+							color: #fff;
+							border: solid 1px #6CB1F2;
+							text-decoration: none;
+						}
+						.paymentform a:hover{
+							background-color: #6CB1F2;
+							text-decoration: none;
+							border: solid 1px #2173E1;
+						}
+</style>
+
+<form action="https://secure.nochex.com/default.aspx" method="POST" name="nochexform" onsubmit="return verifyfields()">
+
+<input name="merchant_id" type="hidden" value="[Enter your Nochex Merchant ID]" /> 
+
+<div class="paymentform">
+<table>
+	<tbody>
+		<tr>
+			<td><span>Order Reference</span></td>
+			<td colspan="2"><input class="inputstyle" name="order_id" type="text" value="" /></td>
+		</tr>
+		<tr>
+			<td><span>Total Amount</span></td>
+			<td><input class="inputstyle" name="amount" type="text" value="" /><a href="javascript: void(0)" onclick="qtotal()">?</a></td>
+		</tr>
+		<tr>
+			<td><span>Description</span></td>
+			<td colspan="2"><textarea cols="25" name="description" rows="5"></textarea></td>
+		</tr>			
+		<tr>
+			<td colspan="3"><input alt="Pay using Nochex" class="paybtn" src="https://ssl.nochex.com/images/buttons/nochex_pay.png" style="padding: 10px; margin-left: 180px;" type="image" /></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</form>

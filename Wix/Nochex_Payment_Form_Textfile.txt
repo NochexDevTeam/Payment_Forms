@@ -52,7 +52,7 @@
 	}
 </style>
 <form action="https://secure.nochex.com/default.aspx" method="POST" name="nochexform" onsubmit="return verifyfields();">
-	<input name="merchant_id" value="steveglover1@hotmail.com" type="hidden" />
+	<input name="merchant_id" value="" type="hidden" />
 
 	<div class="paymentform">
 		<table>
